@@ -14,7 +14,6 @@ public class RandomNumbers {
         if (num.hasNextInt()) {
             quantity = num.nextInt();
         }
-            num.close();
     }
 
     public void generateNumbers(){
@@ -33,6 +32,7 @@ public class RandomNumbers {
         for (Integer n:arrayOfNumbers){
             System.out.print(n + " ");
         }
+        System.out.println();
 
 //        System.out.println("Выводим в столбик:");
 //        for (int i = 0; i < arrayOfNumbers.size(); i++){
