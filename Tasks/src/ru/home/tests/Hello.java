@@ -4,9 +4,8 @@ import java.util.Scanner;
 
 public class Hello {
 
-    public String nameRequest() {
+    public String nameRequest(Scanner name) {
         System.out.print("Введите своё имя: ");
-        Scanner name = new Scanner(System.in);
         return name.nextLine();
     }
 

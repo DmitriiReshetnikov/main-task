@@ -1,12 +1,13 @@
 package ru.home.tests;
 
+import java.util.ArrayList;
+
 public class SimpleMath extends ListOfNumbers{
 
-    public void IntegerListMath(){
-        requestNumbers();
+    public void IntegerListMath(ArrayList<Integer> inputArray){
         int sum = 0;
         int mul = 1;
-        for (Integer data: arrayOfNumbers) {
+        for (Integer data: inputArray) {
             sum += data;
             mul *= data;
         }

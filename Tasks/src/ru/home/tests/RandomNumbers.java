@@ -1,47 +1,47 @@
 package ru.home.tests;
 
+import ru.home.tests.exception.NegativeIntegerException;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class RandomNumbers {
 
-    private int quantity;
-    private ArrayList<Integer> arrayOfNumbers = new ArrayList<>();
-
-    public void requestQuantity(){
+    public Integer requestQuantity(Scanner scanner) {
         System.out.println("Введите желаемое количество случайных чисел: ");
-        Scanner num = new Scanner(System.in);
-        if (num.hasNextInt()) {
-            quantity = num.nextInt();
+        NumberInput n = new NumberInput();
+        while (true){
+            Integer result = n.anyNumberIn(scanner);
+            if (result > 0) {
+                return result;
+            }else {
+                System.out.println("Введите число больше нуля!");
+            }
         }
     }
 
-    public void generateNumbers(){
-        for (int i = quantity; i > 0; i--){
-            arrayOfNumbers.add((int)(Math.random()*1000));
+    public ArrayList<Integer> generateNumbers(Integer size){
+        ArrayList<Integer> result = new ArrayList<>();
+        for (int i = size; i > 0; i--) {
+            result.add((int) (Math.random() * 1000));
         }
+        return result;
     }
 
-    public void randomNumberOut(){
+    public void randomNumberOut(ArrayList<Integer> arrOfNum) {
+        if(arrOfNum==null){
+            System.out.println("массив не был передан");
+            return;
+        }
         System.out.println("Выводим в столбик:");
-        for (Integer n:arrayOfNumbers){
+        for (Integer n : arrOfNum) {
             System.out.println(n);
         }
 
         System.out.print("Выводим в строку: ");
-        for (Integer n:arrayOfNumbers){
+        for (Integer n : arrOfNum) {
             System.out.print(n + " ");
         }
         System.out.println();
-
-//        System.out.println("Выводим в столбик:");
-//        for (int i = 0; i < arrayOfNumbers.size(); i++){
-//            System.out.println(arrayOfNumbers.get(i));
-//        }
-//
-//        System.out.print("Выводим в строку: ");
-//        for (int i = 0; i < arrayOfNumbers.size(); i++){
-//            System.out.print(arrayOfNumbers.get(i)+" ");
-//        }
     }
 }
