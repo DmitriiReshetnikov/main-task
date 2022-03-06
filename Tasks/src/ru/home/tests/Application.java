@@ -1,12 +1,13 @@
 package ru.home.tests;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Application {
     public static void main(String[] args) {
 
         Scanner consoleIn = new Scanner(System.in);
-
+/*
         {
             //Main task 1
             System.out.println("Приветствие нового пользователя!");
@@ -37,6 +38,19 @@ public class Application {
             System.out.println("Вывод порядкового номера месяца");
             MonthNumber mn = new MonthNumber();
             mn.monthName(mn.requestNumber(consoleIn));
+        }
+        */
+        {
+            // Optional task 1
+            System.out.println("Задача 1.1. Найти самое короткое и самое длинное число в ряду");
+            ListOfNumbers list = new ListOfNumbers();
+            ArrayList<Integer> array = new ArrayList<>();
+            array = list.requestNumbers(consoleIn);
+            list.findNumber(array); // выводим самое короткое и самое длинное числа в ряду
+            System.out.println("Задача 1.3. Вывод чисел длина которых меньше средней длины чисел всего массива и их длины");
+            Integer average = list.averageLength(array);
+            System.out.println("Средняя длина: " + average);
+            list.lowNumbers(array, average);
         }
         consoleIn.close();
     }
