@@ -1,13 +1,14 @@
 package ru.home.tests;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Application {
     public static void main(String[] args) {
 
         Scanner consoleIn = new Scanner(System.in);
-/*
+
         {
             //Main task 1
             System.out.println("Приветствие нового пользователя!");
@@ -39,7 +40,7 @@ public class Application {
             MonthNumber mn = new MonthNumber();
             mn.monthName(mn.requestNumber(consoleIn));
         }
-        */
+
         {
             // Optional task 1
             System.out.println("Задача 1.1. Найти самое короткое и самое длинное число в ряду");
@@ -52,6 +53,25 @@ public class Application {
             System.out.println("Средняя длина: " + average);
             list.lowNumbers(array, average);
         }
+        {
+            //Optional task 2
+            System.out.println("Задача 2.3. Найти сумму элементов матрицы, расположенных между ");
+            System.out.println("первым и вторым положительными элементами каждой строки");
+            System.out.println("Введите размерность матрицы - n: ");
+            Integer n = new NumberInput().anyNumberIn(consoleIn);
+            System.out.println("Введите предельное значение элемента матрицы - M (диапазон значений матрицы от -М до +М)");
+            Integer m = new NumberInput().anyNumberIn(consoleIn);
+            Matrix matrix = new Matrix();
+            Integer[][] twoDimMatrix = new Integer[n][n];
+            twoDimMatrix = matrix.matrixSet(n,m);
+            System.out.println(Arrays.deepToString(twoDimMatrix));
+            int[] sumArray = new int[n];
+            sumArray = matrix.matrixSum(twoDimMatrix, n);
+            for (int i= 0; i < n; i++){
+                System.out.println("Строка: " + (i+1) + "   Сумма: " + sumArray[i]);
+            }
+        }
+
         consoleIn.close();
     }
 }
